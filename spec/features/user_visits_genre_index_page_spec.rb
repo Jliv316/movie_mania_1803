@@ -9,6 +9,7 @@ describe 'visitor' do
 
       visit genres_path
 
+      expect(page).to_not have_field('genre[name]')
       expect(page).to have_content(genre1.name)
       expect(page).to have_content(genre2.name)
       expect(page).to_not have_content("Create Genre")

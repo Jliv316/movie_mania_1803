@@ -1,8 +1,18 @@
 <nav>
-  <a href="<%= root_path %>">Home</a>
-  <a href="<%= directors_path %>">Directors</a>
-  <a href="<%= movies_path %>">Movies</a>
-  <a href="<%= actors_path %>">Actors</a>
+  <% if current_user.admin? %>
+    <a href="<%= root_path %>">Home</a>
+    <a href="<%= directors_path %>">Directors</a>
+    <a href="<%= movies_path %>">Movies</a>
+    <a href="<%= actors_path %>">Actors</a>
+    <a href="<%= admin_genres_path %>">Genres</a>
+  <%else%>
+    <a href="<%= root_path %>">Home</a>
+    <a href="<%= directors_path %>">Directors</a>
+    <a href="<%= movies_path %>">Movies</a>
+    <a href="<%= actors_path %>">Actors</a>
+    <a href="<%= genres_path %>">Genres</a>
+  <%end%>
+
 
   <% if current_user %>
     <%= link_to "Log out", logout_path %>
