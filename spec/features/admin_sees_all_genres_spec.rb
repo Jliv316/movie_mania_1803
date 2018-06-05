@@ -11,7 +11,6 @@ describe "User visits genres index page" do
       genre2 = Genre.create(name: "Action")
 
       visit admin_genres_path
-      save_and_open_page
 
       expect(page).to have_content(genre1.name)
       expect(page).to have_content(genre2.name)
