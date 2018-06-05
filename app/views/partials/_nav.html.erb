@@ -1,5 +1,5 @@
 <nav>
-  <% if current_user.admin? %>
+  <% if current_admin? %>
     <a href="<%= root_path %>">Home</a>
     <a href="<%= directors_path %>">Directors</a>
     <a href="<%= movies_path %>">Movies</a>
