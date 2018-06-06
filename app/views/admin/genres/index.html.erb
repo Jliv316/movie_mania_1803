@@ -1,9 +1,0 @@
-<h1>Admin Genres</h1>
-
-<% @genres.each do |genre| %>
-  <ul>
-    <li><%= genre.name%></li>
-  </ul>
-<%end%>
-
-<%= render 'form', genre: @genre, user: current_user %>

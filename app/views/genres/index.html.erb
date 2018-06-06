@@ -1,5 +1,9 @@
 <h1>Genres</h1>
 
 <% @genres.each do |genre| %>
-  <li>Name: <%= link_to "#{genre.name}", "/genres/#{genre.id}" %>
+  <li>Name: <%= link_to "#{genre.name}", genre_path(genre) %>
+<%end%>
+
+<% if current_admin? %>
+<%= render 'form', genre: @genre, user: current_user %>
 <%end%>

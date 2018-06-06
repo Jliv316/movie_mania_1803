@@ -1,9 +1,4 @@
 class Admin::GenresController < Admin::BaseController
-  def index
-    @genres = Genre.all
-    @genre = Genre.new
-  end
-
   def new
     @genre = Genre.new
   end
@@ -12,7 +7,7 @@ class Admin::GenresController < Admin::BaseController
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:success] = "You created #{@genre.name}"
-      redirect_to admin_genres_path
+      redirect_to genres_path
     else
       render :new
     end

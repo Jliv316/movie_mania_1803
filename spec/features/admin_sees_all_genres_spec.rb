@@ -10,7 +10,7 @@ describe "User visits genres index page" do
       genre1 = Genre.create(name: "Horror")
       genre2 = Genre.create(name: "Action")
 
-      visit admin_genres_path
+      visit genres_path
 
       expect(page).to have_content(genre1.name)
       expect(page).to have_content(genre2.name)
@@ -23,9 +23,9 @@ describe "User visits genres index page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-      visit admin_genres_path
+      visit genres_path
 
-      expect(current_path).to eq(admin_genres_path)
+      expect(current_path).to eq(genres_path)
       expect(page).to have_field('genre[name]')
       expect(page).to have_button('Create Genre')
     end
@@ -40,11 +40,11 @@ describe "User visits genres index page" do
       genre1 = Genre.create(name: "Horror")
       genre2 = Genre.create(name: "Action")
 
-      visit admin_genres_path
+      visit genres_path
       fill_in 'genre[name]', with: 'Thriller'
       click_on "Create Genre"
 
-      expect(current_path).to eq(admin_genres_path)
+      expect(current_path).to eq(genres_path)
       expect(page).to have_content(genre1.name)
       expect(page).to have_content(genre2.name)
       expect(page).to have_content('Thriller')
